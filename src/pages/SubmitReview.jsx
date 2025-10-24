@@ -98,7 +98,7 @@ export default function SubmitReview() {
               type="text"
               value={formData.companyName}
               onChange={handleChange}
-              placeholder="E.g., Tech Corp Inc."
+              placeholder="E.g., Google, Microsoft, Apple"
               required
             />
           </div>
@@ -111,7 +111,7 @@ export default function SubmitReview() {
               type="text"
               value={formData.bossName}
               onChange={handleChange}
-              placeholder="E.g., John Smith"
+              placeholder="E.g., Elon Musk, Tim Cook, Satya Nadella"
               required
             />
           </div>
