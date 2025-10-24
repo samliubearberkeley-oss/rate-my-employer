@@ -59,25 +59,25 @@ export default function Login() {
         
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="email">📧 EMAIL</label>
+            <label htmlFor="email">📧 Email</label>
             <input
               id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="YOUR@EMAIL.COM"
+              placeholder="your@email.com"
               required
             />
           </div>
           
           <div className="form-group">
-            <label htmlFor="password">🔐 PASSWORD</label>
+            <label htmlFor="password">🔐 Password</label>
             <input
               id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="YOUR PASSWORD"
+              placeholder="Your Password"
               required
               minLength={6}
             />

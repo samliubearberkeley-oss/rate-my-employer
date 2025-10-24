@@ -91,33 +91,33 @@ export default function SubmitReview() {
         
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="companyName">🏢 COMPANY NAME *</label>
+            <label htmlFor="companyName">🏢 Company Name *</label>
             <input
               id="companyName"
               name="companyName"
               type="text"
               value={formData.companyName}
               onChange={handleChange}
-              placeholder="E.G., TECH CORP INC."
+              placeholder="E.g., Tech Corp Inc."
               required
             />
           </div>
           
           <div className="form-group">
-            <label htmlFor="bossName">👔 BOSS NAME *</label>
+            <label htmlFor="bossName">👔 Boss Name *</label>
             <input
               id="bossName"
               name="bossName"
               type="text"
               value={formData.bossName}
               onChange={handleChange}
-              placeholder="E.G., JOHN SMITH"
+              placeholder="E.g., John Smith"
               required
             />
           </div>
           
           <div className="form-group">
-            <label htmlFor="rating">⭐ RATING * ({formData.rating}/5)</label>
+            <label htmlFor="rating">⭐ Rating * ({formData.rating}/5)</label>
             <div className="rating-container">
               <input
                 id="rating"
@@ -143,13 +143,13 @@ export default function SubmitReview() {
           </div>
           
           <div className="form-group">
-            <label htmlFor="reviewText">📝 REVIEW (OPTIONAL)</label>
+            <label htmlFor="reviewText">📝 Review (Optional)</label>
             <textarea
               id="reviewText"
               name="reviewText"
               value={formData.reviewText}
               onChange={handleChange}
-              placeholder="TELL US ABOUT YOUR EXPERIENCE..."
+              placeholder="Tell us about your experience..."
               rows="5"
             />
           </div>

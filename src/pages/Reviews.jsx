@@ -101,7 +101,7 @@ export default function Reviews() {
               <div className="review-header">
                 <div>
                   <h3 className="company-name">{review.company_name}</h3>
-                  <p className="boss-name">BOSS: {review.boss_name}</p>
+                  <p className="boss-name">Boss: {review.boss_name}</p>
                 </div>
                 {renderStars(review.rating)}
               </div>
