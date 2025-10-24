@@ -124,7 +124,6 @@ export default function Leaderboard() {
     <>
       {/* Hero Section */}
       <div className="hero">
-        <div className="hero-placeholder sketch"></div>
         <h1 className="hero-title sketch">Company Leaderboard</h1>
         <p className="hero-subtitle">
           Top rated companies based on employee reviews

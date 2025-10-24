@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import BottomNav from './components/BottomNav';
 import Reviews from './pages/Reviews';
 import SubmitReview from './pages/SubmitReview';
@@ -10,7 +9,6 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Navbar />
         <main style={{ paddingBottom: '80px' }}>
           <Routes>
             <Route path="/" element={<Reviews />} />

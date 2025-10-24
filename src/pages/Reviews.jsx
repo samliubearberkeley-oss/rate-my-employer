@@ -89,16 +89,10 @@ export default function Reviews() {
     <>
       {/* Hero Section */}
       <div className="hero">
-        <div className="hero-placeholder sketch"></div>
         <h1 className="hero-title sketch">Employer Reviews</h1>
         <p className="hero-subtitle">
           {reviews.length} {reviews.length === 1 ? 'review' : 'reviews'} from employees
         </p>
-        <div className="hero-cta">
-          <a href="/submit" className="sketch-btn primary">
-            Submit Review
-          </a>
-        </div>
       </div>
 
       {/* Reviews List */}
@@ -107,11 +101,6 @@ export default function Reviews() {
           <div className="list-header">
             <h2 className="list-title">Recent Reviews</h2>
             <p className="list-subtitle">Tap any review to read more</p>
-            <div className="list-actions">
-              <a href="/submit" className="sketch-btn primary">
-                Submit Review
-              </a>
-            </div>
           </div>
           
           {reviews.length === 0 ? (

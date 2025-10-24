@@ -142,27 +142,22 @@
 /* List Layout */
 .list-container {
   background: var(--theme-card);
-  border: 2px solid var(--theme-border);
+  border: none;
   border-radius: 0;
   margin: 20px 0;
   overflow: hidden;
 }
 
 .list-container.sketch {
-  border: 3px solid var(--theme-border);
-  transform: rotate(0.2deg);
-  box-shadow: 4px 4px 0 var(--theme-shadow);
-}
-
-.list-container.clean {
-  border-radius: 12px;
-  box-shadow: 0 4px 12px var(--theme-shadow);
+  border: none;
+  transform: none;
+  box-shadow: none;
 }
 
 .list-header {
   padding: 20px;
   border-bottom: 2px solid var(--theme-border);
-  background: var(--theme-panel);
+  background: var(--theme-card);
 }
 
 .list-title {
@@ -174,7 +169,7 @@
 
 .list-subtitle {
   font-size: 14px;
-  color: var(--theme-muted);
+  color: var(--theme-text);
 }
 
 .list-actions {
@@ -197,7 +192,7 @@
 }
 
 .list-item:hover {
-  background: var(--theme-panel);
+  background: var(--theme-card);
 }
 
 .list-item.sketch:hover::before {
@@ -215,7 +210,7 @@
 .list-thumbnail {
   width: 48px;
   height: 48px;
-  background: var(--theme-muted);
+  background: var(--theme-card);
   border: 2px solid var(--theme-border);
   margin-right: 16px;
   display: flex;
@@ -226,15 +221,15 @@
 }
 
 .list-thumbnail.sketch {
-  border: 3px solid var(--theme-border);
+  border: 2px solid var(--theme-border);
   transform: rotate(-1deg);
 }
 
 .list-thumbnail::before {
   content: '✕';
   font-size: 20px;
-  color: var(--theme-muted);
-  opacity: 0.6;
+  color: var(--theme-border);
+  opacity: 1;
   font-weight: bold;
 }
 
@@ -255,7 +250,7 @@
 
 .list-item-meta {
   font-size: 14px;
-  color: var(--theme-muted);
+  color: var(--theme-text);
 }
 
 /* Card Detail Overlay */
@@ -534,16 +529,16 @@
 
 .star {
   font-size: 20px;
-  color: var(--theme-muted);
+  color: var(--theme-text);
   transition: color 0.2s ease;
 }
 
 .star.filled {
-  color: var(--theme-accent);
+  color: var(--theme-text);
 }
 
 .star.empty {
-  color: var(--theme-muted);
+  color: var(--theme-text);
 }
 
 /* Form Actions */

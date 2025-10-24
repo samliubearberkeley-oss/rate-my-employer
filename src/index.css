@@ -7,22 +7,22 @@
 }
 
 :root {
-  /* Pencil Sketch Theme - Black and White Only */
+  /* Pencil Sketch Theme - Pure Black and White */
   --sketch-paper: #FFFFFF;
   --sketch-ink: #000000;
-  --sketch-placeholder: #E5E5E5;
+  --sketch-placeholder: #FFFFFF;
   --sketch-accent: #000000;
-  --sketch-panel: #F8F8F8;
+  --sketch-panel: #FFFFFF;
   
   /* Theme Variables (pencil sketch only) */
   --theme-bg: var(--sketch-paper);
   --theme-text: var(--sketch-ink);
-  --theme-muted: var(--sketch-placeholder);
+  --theme-muted: var(--sketch-ink);
   --theme-accent: var(--sketch-accent);
   --theme-panel: var(--sketch-panel);
   --theme-card: var(--sketch-paper);
   --theme-border: var(--sketch-ink);
-  --theme-shadow: rgba(0, 0, 0, 0.1);
+  --theme-shadow: rgba(0, 0, 0, 0.05);
 }
 
 body {
