@@ -103,22 +103,24 @@ export default function Reviews() {
 
       {/* Reviews List */}
       <div className="container">
-        {reviews.length === 0 ? (
-          <div className="empty-state">
-            <h3>No reviews yet</h3>
-            <p>Be the first to submit a review!</p>
-            <a href="/submit" className="sketch-btn primary">
-              Submit Review
-            </a>
-          </div>
-        ) : (
-          <div className="list-container sketch">
-            <div className="list-header">
-              <h2 className="list-title">Recent Reviews</h2>
-              <p className="list-subtitle">Tap any review to read more</p>
+        <div className="list-container sketch">
+          <div className="list-header">
+            <h2 className="list-title">Recent Reviews</h2>
+            <p className="list-subtitle">Tap any review to read more</p>
+            <div className="list-actions">
+              <a href="/submit" className="sketch-btn primary">
+                Submit Review
+              </a>
             </div>
-            
-            {reviews.map((review) => (
+          </div>
+          
+          {reviews.length === 0 ? (
+            <div className="empty-state">
+              <h3>No reviews yet</h3>
+              <p>Be the first to submit a review!</p>
+            </div>
+          ) : (
+            reviews.map((review) => (
               <div 
                 key={review.id} 
                 className="list-item sketch"
@@ -134,9 +136,9 @@ export default function Reviews() {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+            ))
+          )}
+        </div>
       </div>
 
       {/* Review Detail Overlay */}

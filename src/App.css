@@ -1,14 +1,10 @@
-/* Hand-drawn Paper UI System */
+/* Pencil Sketch UI System */
 .app {
   min-height: 100vh;
   background: var(--theme-bg);
   color: var(--theme-text);
   font-family: 'Kalam', cursive;
   position: relative;
-}
-
-body.clean-theme .app {
-  font-family: 'Inter', sans-serif;
 }
 
 /* Header / Top Bar */

@@ -7,21 +7,14 @@
 }
 
 :root {
-  /* Sketch Theme (Paper + Pencil) */
-  --sketch-paper: #FBF7F1;
-  --sketch-ink: #222222;
-  --sketch-placeholder: #D1D5DB;
-  --sketch-accent: #B57A3A;
-  --sketch-panel: #F6F2E9;
+  /* Pencil Sketch Theme - Black and White Only */
+  --sketch-paper: #FFFFFF;
+  --sketch-ink: #000000;
+  --sketch-placeholder: #E5E5E5;
+  --sketch-accent: #000000;
+  --sketch-panel: #F8F8F8;
   
-  /* Clean Theme (Productized) */
-  --clean-bg: #F3F4F6;
-  --clean-text: #111827;
-  --clean-muted: #6B7280;
-  --clean-cta: #2563EB;
-  --clean-card: #FFFFFF;
-  
-  /* Theme Variables (default to sketch) */
+  /* Theme Variables (pencil sketch only) */
   --theme-bg: var(--sketch-paper);
   --theme-text: var(--sketch-ink);
   --theme-muted: var(--sketch-placeholder);
@@ -29,18 +22,6 @@
   --theme-panel: var(--sketch-panel);
   --theme-card: var(--sketch-paper);
   --theme-border: var(--sketch-ink);
-  --theme-shadow: rgba(34, 34, 34, 0.1);
-}
-
-/* Clean theme override */
-body.clean-theme {
-  --theme-bg: var(--clean-bg);
-  --theme-text: var(--clean-text);
-  --theme-muted: var(--clean-muted);
-  --theme-accent: var(--clean-cta);
-  --theme-panel: var(--clean-bg);
-  --theme-card: var(--clean-card);
-  --theme-border: var(--clean-muted);
   --theme-shadow: rgba(0, 0, 0, 0.1);
 }
 
@@ -50,11 +31,6 @@ body {
   color: var(--theme-text);
   line-height: 1.6;
   min-height: 100vh;
-  transition: all 0.3s ease;
-}
-
-body.clean-theme {
-  font-family: 'Inter', sans-serif;
 }
 
 #root {
