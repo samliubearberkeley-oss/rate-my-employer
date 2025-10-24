@@ -168,6 +168,8 @@
   background: var(--theme-card);
   transform: rotate(-0.3deg);
   transition: transform 0.2s ease;
+  margin-bottom: 16px;
+  padding: 20px;
 }
 
 .reviews-grid .list-item:hover {
@@ -224,31 +226,31 @@
 /* List Items */
 .list-item {
   display: flex;
-  align-items: center;
-  padding: 16px 20px;
-  border-bottom: none;
+  align-items: flex-start;
+  padding: 20px;
+  border: 2px solid var(--theme-border);
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
-  margin-bottom: 8px;
-}
-
-.list-item:last-child {
-  border-bottom: none;
-}
-
-.list-item:hover {
+  margin-bottom: 16px;
   background: var(--theme-card);
 }
 
+.list-item:last-child {
+  margin-bottom: 0;
+}
+
+.list-item:hover {
+  background: var(--theme-panel);
+}
+
 .list-item.sketch {
-  border-bottom: none;
   transform: rotate(0.2deg);
 }
 
 .list-item.sketch:hover {
   transform: rotate(0deg);
-  background: var(--theme-panel);
+  box-shadow: 2px 2px 0 var(--theme-shadow);
 }
 
 .list-item.sketch:hover::before {
