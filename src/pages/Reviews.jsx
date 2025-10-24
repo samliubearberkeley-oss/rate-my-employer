@@ -105,7 +105,7 @@ export default function Reviews() {
         <div className="list-container sketch">
           <div className="list-header">
             <h2 className="list-title">Recent Reviews</h2>
-            <p className="list-subtitle">Tap any review to read more</p>
+            <p className="list-subtitle">Employee feedback and ratings</p>
           </div>
           
           {reviews.length === 0 ? (
@@ -114,61 +114,30 @@ export default function Reviews() {
               <p>Be the first to submit a review!</p>
             </div>
           ) : (
-            reviews.map((review) => (
-              <div 
-                key={review.id} 
-                className="list-item sketch"
-                onClick={() => openReview(review)}
-              >
-                <div className="list-content">
-                  <div className="list-item-title">
-                    {review.review_text || 'No review text'}
-                  </div>
-                  <div className="list-item-meta">
-                    {capitalizeWords(review.company_name)} • Boss: {capitalizeWords(review.boss_name)}
-                  </div>
-                  <div className="list-item-rating">
-                    {renderStars(review.rating)} • {formatDate(review.created_at)}
+            <div className="reviews-grid">
+              {reviews.map((review) => (
+                <div 
+                  key={review.id} 
+                  className="list-item sketch"
+                >
+                  <div className="list-content">
+                    <div className="list-item-title">
+                      {review.review_text}
+                    </div>
+                    <div className="list-item-meta">
+                      {capitalizeWords(review.company_name)} • Boss: {capitalizeWords(review.boss_name)}
+                    </div>
+                    <div className="list-item-rating">
+                      {renderStars(review.rating)} • {formatDate(review.created_at)}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
+              ))}
+            </div>
           )}
         </div>
       </div>
 
-      {/* Review Detail Overlay */}
-      {selectedReview && (
-        <div className="overlay" onClick={closeReview}>
-          <div className="overlay-card sketch" onClick={(e) => e.stopPropagation()}>
-            <div className="overlay-header">
-              <h3 className="overlay-title">
-                {capitalizeWords(selectedReview.company_name)}
-              </h3>
-              <button className="close-btn" onClick={closeReview}>
-                ×
-              </button>
-            </div>
-            <div className="overlay-content">
-              <div className="overlay-image sketch"></div>
-              <div className="overlay-meta">
-                Boss: {capitalizeWords(selectedReview.boss_name)} • {formatDate(selectedReview.created_at)}
-              </div>
-              <div className="stars">
-                {renderStars(selectedReview.rating)}
-              </div>
-              {selectedReview.review_text && (
-                <p className="review-text">{selectedReview.review_text}</p>
-              )}
-              <div className="overlay-actions">
-                <a href="/submit" className="sketch-btn primary">
-                  Submit Your Review
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }
