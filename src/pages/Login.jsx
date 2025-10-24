@@ -97,7 +97,7 @@ export default function Login() {
           className="btn btn-secondary"
           disabled={loading}
         >
-          🚀 SIGN IN WITH GOOGLE
+          🚀 Sign In With Google
         </button>
         
         <p className="auth-toggle">
