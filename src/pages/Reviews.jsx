@@ -2,6 +2,15 @@ import { useEffect, useState } from 'react';
 import { insforge } from '../lib/insforge';
 import { useAuth } from '../contexts/AuthContext';
 
+// Function to capitalize first letter of each word
+const capitalizeWords = (str) => {
+  if (!str) return '';
+  return str
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+};
+
 export default function Reviews() {
   const { user } = useAuth();
   const [reviews, setReviews] = useState([]);
@@ -100,8 +109,8 @@ export default function Reviews() {
             <div key={review.id} className="review-card">
               <div className="review-header">
                 <div>
-                  <h3 className="company-name">{review.company_name}</h3>
-                  <p className="boss-name">Boss: {review.boss_name}</p>
+                  <h3 className="company-name">{capitalizeWords(review.company_name)}</h3>
+                  <p className="boss-name">Boss: {capitalizeWords(review.boss_name)}</p>
                 </div>
                 {renderStars(review.rating)}
               </div>

@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react';
 import { insforge } from '../lib/insforge';
 
+// Function to capitalize first letter of each word
+const capitalizeWords = (str) => {
+  if (!str) return '';
+  return str
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+};
+
 export default function Leaderboard() {
   const [leaderboard, setLeaderboard] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -141,7 +150,7 @@ export default function Leaderboard() {
                 </div>
                 
                 <div className="company-info">
-                  <h3 className="company-name">{company.name}</h3>
+                  <h3 className="company-name">{capitalizeWords(company.name)}</h3>
                   <div className="rating-info">
                     {renderStars(company.avgRating)}
                     <span className={`rating-score ${getRatingColor(company.avgRating)}`}>
