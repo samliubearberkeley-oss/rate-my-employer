@@ -14,6 +14,7 @@ export default function Reviews() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [selectedReview, setSelectedReview] = useState(null);
 
   useEffect(() => {
     fetchReviews();
@@ -60,6 +61,14 @@ export default function Reviews() {
     });
   };
 
+  const openReview = (review) => {
+    setSelectedReview(review);
+  };
+
+  const closeReview = () => {
+    setSelectedReview(null);
+  };
+
   if (loading) {
     return (
       <div className="container">
@@ -77,59 +86,92 @@ export default function Reviews() {
   }
 
   return (
-    <div className="container">
-      <div className="reviews-header">
-        <h1>🎮 EMPLOYER REVIEWS</h1>
-        <p className="subtitle">
-          {reviews.length} {reviews.length === 1 ? 'REVIEW' : 'REVIEWS'} FROM EMPLOYEES
+    <>
+      {/* Hero Section */}
+      <div className="hero">
+        <div className="hero-placeholder sketch"></div>
+        <h1 className="hero-title sketch">Employer Reviews</h1>
+        <p className="hero-subtitle">
+          {reviews.length} {reviews.length === 1 ? 'review' : 'reviews'} from employees
         </p>
-        <div className="pixel-dots">
-          <div className="pixel-dot"></div>
-          <div className="pixel-dot"></div>
-          <div className="pixel-dot"></div>
-          <div className="pixel-dot"></div>
-          <div className="pixel-dot"></div>
-        </div>
-        <div className="header-actions">
-          <a href="/submit" className="btn btn-primary">
-            SUBMIT REVIEW
+        <div className="hero-cta">
+          <a href="/submit" className="sketch-btn primary">
+            Submit Review
           </a>
         </div>
       </div>
 
-      {reviews.length === 0 ? (
-        <div className="empty-state">
-          <p>🎯 NO REVIEWS YET. BE THE FIRST TO SUBMIT A REVIEW!</p>
-          <a href="/submit" className="btn btn-primary">
-            SUBMIT REVIEW
-          </a>
-        </div>
-      ) : (
-        <div className="reviews-grid">
-          {reviews.map((review) => (
-            <div key={review.id} className="review-card">
-              <div className="review-header">
-                <div>
-                  <h3 className="company-name">{capitalizeWords(review.company_name)}</h3>
-                  <p className="boss-name">Boss: {capitalizeWords(review.boss_name)}</p>
+      {/* Reviews List */}
+      <div className="container">
+        {reviews.length === 0 ? (
+          <div className="empty-state">
+            <h3>No reviews yet</h3>
+            <p>Be the first to submit a review!</p>
+            <a href="/submit" className="sketch-btn primary">
+              Submit Review
+            </a>
+          </div>
+        ) : (
+          <div className="list-container sketch">
+            <div className="list-header">
+              <h2 className="list-title">Recent Reviews</h2>
+              <p className="list-subtitle">Tap any review to read more</p>
+            </div>
+            
+            {reviews.map((review) => (
+              <div 
+                key={review.id} 
+                className="list-item sketch"
+                onClick={() => openReview(review)}
+              >
+                <div className="list-thumbnail sketch"></div>
+                <div className="list-content">
+                  <div className="list-item-title">
+                    {capitalizeWords(review.company_name)}
+                  </div>
+                  <div className="list-item-meta">
+                    Boss: {capitalizeWords(review.boss_name)} • {renderStars(review.rating)} • {formatDate(review.created_at)}
+                  </div>
                 </div>
-                {renderStars(review.rating)}
               </div>
-              
-              {review.review_text && (
-                <p className="review-text">{review.review_text}</p>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Review Detail Overlay */}
+      {selectedReview && (
+        <div className="overlay" onClick={closeReview}>
+          <div className="overlay-card sketch" onClick={(e) => e.stopPropagation()}>
+            <div className="overlay-header">
+              <h3 className="overlay-title">
+                {capitalizeWords(selectedReview.company_name)}
+              </h3>
+              <button className="close-btn" onClick={closeReview}>
+                ×
+              </button>
+            </div>
+            <div className="overlay-content">
+              <div className="overlay-image sketch"></div>
+              <div className="overlay-meta">
+                Boss: {capitalizeWords(selectedReview.boss_name)} • {formatDate(selectedReview.created_at)}
+              </div>
+              <div className="stars">
+                {renderStars(selectedReview.rating)}
+              </div>
+              {selectedReview.review_text && (
+                <p className="review-text">{selectedReview.review_text}</p>
               )}
-              
-              <div className="review-footer">
-                <span className="review-date">
-                  {formatDate(review.created_at)}
-                </span>
+              <div className="overlay-actions">
+                <a href="/submit" className="sketch-btn primary">
+                  Submit Your Review
+                </a>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

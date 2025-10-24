@@ -73,50 +73,52 @@ export default function SubmitReview() {
     }
   };
 
+  const isFormValid = formData.companyName.trim() && formData.bossName.trim();
+
   return (
     <div className="container">
-      <div className="form-card">
-        <h1>🎮 SUBMIT A REVIEW</h1>
-        <p className="subtitle">SHARE YOUR EXPERIENCE WITH YOUR EMPLOYER</p>
-        <div className="pixel-dots">
-          <div className="pixel-dot"></div>
-          <div className="pixel-dot"></div>
-          <div className="pixel-dot"></div>
-          <div className="pixel-dot"></div>
-          <div className="pixel-dot"></div>
-        </div>
+      <div className="form-container sketch">
+        <h1 className="form-title sketch">Submit Review</h1>
         
-        {error && <div className="error-message">{error}</div>}
+        {error && <div className="error-message sketch">{error}</div>}
         
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="companyName">🏢 Company Name *</label>
+            <label className="form-label" htmlFor="companyName">
+              Company Name *
+            </label>
             <input
               id="companyName"
               name="companyName"
               type="text"
               value={formData.companyName}
               onChange={handleChange}
-              placeholder="E.g., Google, Microsoft, Apple"
+              placeholder="e.g., Google, Microsoft, Apple"
+              className="form-input sketch"
               required
             />
           </div>
           
           <div className="form-group">
-            <label htmlFor="bossName">👔 Boss Name *</label>
+            <label className="form-label" htmlFor="bossName">
+              Boss Name *
+            </label>
             <input
               id="bossName"
               name="bossName"
               type="text"
               value={formData.bossName}
               onChange={handleChange}
-              placeholder="E.g., Elon Musk, Tim Cook, Satya Nadella"
+              placeholder="e.g., Elon Musk, Tim Cook, Satya Nadella"
+              className="form-input sketch"
               required
             />
           </div>
           
           <div className="form-group">
-            <label htmlFor="rating">⭐ Rating * ({formData.rating}/5)</label>
+            <label className="form-label" htmlFor="rating">
+              Rating * ({formData.rating}/5)
+            </label>
             <div className="rating-container">
               <input
                 id="rating"
@@ -126,36 +128,49 @@ export default function SubmitReview() {
                 max="5"
                 value={formData.rating}
                 onChange={handleChange}
+                className="rating-slider sketch"
                 required
               />
-              <div className="stars">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <span 
-                    key={star} 
-                    className={star <= formData.rating ? 'star filled' : 'star'}
-                  >
-                    ⭐
-                  </span>
-                ))}
+              <div className="rating-display">
+                {formData.rating}/5
               </div>
+            </div>
+            <div className="stars">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <span 
+                  key={star} 
+                  className={star <= formData.rating ? 'star filled' : 'star empty'}
+                >
+                  {star <= formData.rating ? '⭐' : '☆'}
+                </span>
+              ))}
             </div>
           </div>
           
           <div className="form-group">
-            <label htmlFor="reviewText">📝 Review (Optional)</label>
+            <label className="form-label" htmlFor="reviewText">
+              Review (Optional)
+            </label>
             <textarea
               id="reviewText"
               name="reviewText"
               value={formData.reviewText}
               onChange={handleChange}
               placeholder="Tell us about your experience..."
-              rows="5"
+              rows="4"
+              className="form-input form-textarea sketch"
             />
           </div>
           
-          <button type="submit" className="btn btn-primary" disabled={loading}>
-            {loading ? 'SUBMITTING...' : 'SUBMIT REVIEW'}
-          </button>
+          <div className="form-actions">
+            <button 
+              type="submit" 
+              className={`next-btn sketch primary ${!isFormValid ? 'disabled' : ''}`}
+              disabled={!isFormValid || loading}
+            >
+              {loading ? 'Submitting...' : 'Submit Review'}
+            </button>
+          </div>
         </form>
       </div>
     </div>

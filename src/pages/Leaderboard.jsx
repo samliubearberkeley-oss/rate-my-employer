@@ -121,76 +121,52 @@ export default function Leaderboard() {
   }
 
   return (
-    <div className="container">
-      <div className="leaderboard-header">
-        <h1>🏆 COMPANY LEADERBOARD</h1>
-        <p className="subtitle">
-          TOP RATED COMPANIES BASED ON EMPLOYEE REVIEWS • UPDATED IN REAL-TIME
+    <>
+      {/* Hero Section */}
+      <div className="hero">
+        <div className="hero-placeholder sketch"></div>
+        <h1 className="hero-title sketch">Company Leaderboard</h1>
+        <p className="hero-subtitle">
+          Top rated companies based on employee reviews
         </p>
-        <div className="pixel-dots">
-          <div className="pixel-dot"></div>
-          <div className="pixel-dot"></div>
-          <div className="pixel-dot"></div>
-          <div className="pixel-dot"></div>
-          <div className="pixel-dot"></div>
-        </div>
       </div>
 
-      {leaderboard.length === 0 ? (
-        <div className="empty-state">
-          <p>🎯 NO COMPANIES RANKED YET. SUBMIT THE FIRST REVIEW!</p>
-        </div>
-      ) : (
-        <div className="leaderboard-container">
-          <div className="leaderboard-table">
+      <div className="container">
+
+        {leaderboard.length === 0 ? (
+          <div className="empty-state">
+            <h3>No companies ranked yet</h3>
+            <p>Submit the first review to get started!</p>
+            <a href="/submit" className="sketch-btn primary">
+              Submit Review
+            </a>
+          </div>
+        ) : (
+          <div className="list-container sketch">
+            <div className="list-header">
+              <h2 className="list-title">Top Companies</h2>
+              <p className="list-subtitle">Ranked by average employee rating</p>
+            </div>
+            
             {leaderboard.map((company, index) => (
-              <div key={company.name} className={`leaderboard-row ${index < 3 ? 'top-three' : ''}`}>
-                <div className="rank">
+              <div key={company.name} className="list-item sketch">
+                <div className="list-thumbnail sketch">
                   <span className="rank-number">{getMedalEmoji(index + 1)}</span>
                 </div>
-                
-                <div className="company-info">
-                  <h3 className="company-name">{capitalizeWords(company.name)}</h3>
-                  <div className="rating-info">
-                    {renderStars(company.avgRating)}
-                    <span className={`rating-score ${getRatingColor(company.avgRating)}`}>
-                      {company.avgRating.toFixed(2)}
-                    </span>
+                <div className="list-content">
+                  <div className="list-item-title">
+                    {capitalizeWords(company.name)}
                   </div>
-                </div>
-                
-                <div className="review-count">
-                  <span className="count-number">{company.reviewCount}</span>
-                  <span className="count-label">{company.reviewCount === 1 ? 'REVIEW' : 'REVIEWS'}</span>
+                  <div className="list-item-meta">
+                    {renderStars(company.avgRating)} • {company.avgRating.toFixed(2)}/5 • {company.reviewCount} {company.reviewCount === 1 ? 'review' : 'reviews'}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="leaderboard-stats">
-            <div className="stat-card">
-              <div className="stat-number">{leaderboard.length}</div>
-              <div className="stat-label">COMPANIES RANKED</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">
-                {leaderboard.reduce((acc, c) => acc + c.reviewCount, 0)}
-              </div>
-              <div className="stat-label">TOTAL REVIEWS</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">
-                {leaderboard.length > 0 
-                  ? (leaderboard.reduce((acc, c) => acc + c.avgRating, 0) / leaderboard.length).toFixed(2)
-                  : '0.00'
-                }
-              </div>
-              <div className="stat-label">AVERAGE RATING</div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 
