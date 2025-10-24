@@ -17,7 +17,6 @@ export default function Navbar() {
               <Link to="/" className="nav-link">REVIEWS</Link>
               <Link to="/leaderboard" className="nav-link">LEADERBOARD</Link>
               <Link to="/submit" className="nav-link">SUBMIT</Link>
-              <Link to="/poster" className="nav-link">POSTER</Link>
               <button onClick={signOut} className="btn btn-secondary">
                 SIGN OUT
               </button>
@@ -26,7 +25,6 @@ export default function Navbar() {
             <>
               <Link to="/" className="nav-link">REVIEWS</Link>
               <Link to="/leaderboard" className="nav-link">LEADERBOARD</Link>
-              <Link to="/poster" className="nav-link">POSTER</Link>
               <Link to="/login" className="nav-link">LOGIN</Link>
             </>
           )}

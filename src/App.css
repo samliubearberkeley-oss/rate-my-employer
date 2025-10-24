@@ -310,9 +310,10 @@ h3 {
 
 .company-name {
   font-size: 16px;
-  color: var(--pixel-blue);
+  color: var(--pixel-black);
   margin-bottom: 8px;
   letter-spacing: 1px;
+  text-shadow: none;
 }
 
 .boss-name {
@@ -381,6 +382,14 @@ h3 {
 
 .company-info {
   flex: 1;
+}
+
+.company-info .company-name {
+  font-size: 16px;
+  color: var(--pixel-black);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  text-shadow: none;
 }
 
 .rating-info {
