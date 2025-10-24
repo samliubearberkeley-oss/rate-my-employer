@@ -225,14 +225,6 @@
   transform: rotate(-1deg);
 }
 
-.list-thumbnail::before {
-  content: '✕';
-  font-size: 20px;
-  color: var(--theme-border);
-  opacity: 1;
-  font-weight: bold;
-}
-
 .list-content {
   flex: 1;
   min-width: 0;

@@ -93,6 +93,11 @@ export default function Reviews() {
         <p className="hero-subtitle">
           {reviews.length} {reviews.length === 1 ? 'review' : 'reviews'} from employees
         </p>
+        <div className="hero-cta">
+          <a href="/submit" className="sketch-btn primary">
+            Submit Review
+          </a>
+        </div>
       </div>
 
       {/* Reviews List */}
@@ -115,13 +120,12 @@ export default function Reviews() {
                 className="list-item sketch"
                 onClick={() => openReview(review)}
               >
-                <div className="list-thumbnail sketch"></div>
                 <div className="list-content">
                   <div className="list-item-title">
-                    {capitalizeWords(review.company_name)}
+                    {review.review_text || 'No review text'}
                   </div>
                   <div className="list-item-meta">
-                    Boss: {capitalizeWords(review.boss_name)} • {renderStars(review.rating)} • {formatDate(review.created_at)}
+                    {renderStars(review.rating)} • {formatDate(review.created_at)}
                   </div>
                 </div>
               </div>

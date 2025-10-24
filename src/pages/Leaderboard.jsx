@@ -149,12 +149,9 @@ export default function Leaderboard() {
             
             {leaderboard.map((company, index) => (
               <div key={company.name} className="list-item sketch">
-                <div className="list-thumbnail sketch">
-                  <span className="rank-number">{getMedalEmoji(index + 1)}</span>
-                </div>
                 <div className="list-content">
                   <div className="list-item-title">
-                    {capitalizeWords(company.name)}
+                    #{index + 1} {capitalizeWords(company.name)}
                   </div>
                   <div className="list-item-meta">
                     {renderStars(company.avgRating)} • {company.avgRating.toFixed(2)}/5 • {company.reviewCount} {company.reviewCount === 1 ? 'review' : 'reviews'}
