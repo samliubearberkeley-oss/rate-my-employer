@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
 import { insforge } from '../lib/insforge';
 
 export default function SubmitReview() {
-  const { user } = useAuth();
   const navigate = useNavigate();
   
   const [formData, setFormData] = useState({
@@ -15,20 +13,6 @@ export default function SubmitReview() {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-
-  if (!user) {
-    return (
-      <div className="container">
-        <div className="error-card">
-          <h2>🔐 AUTHENTICATION REQUIRED</h2>
-          <p>PLEASE LOG IN TO SUBMIT A REVIEW.</p>
-          <button onClick={() => navigate('/login')} className="btn btn-primary">
-            GO TO LOGIN
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   // Function to capitalize first letter of each word
   const capitalizeWords = (str) => {
@@ -59,10 +43,10 @@ export default function SubmitReview() {
     setLoading(true);
 
     try {
-      const { data, error } = await insforge.database
+      const { data, error} = await insforge.database
         .from('reviews')
         .insert([{
-          user_id: user.id,
+          user_id: null,
           company_name: formData.companyName,
           boss_name: formData.bossName,
           rating: parseInt(formData.rating),

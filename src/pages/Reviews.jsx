@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { insforge } from '../lib/insforge';
-import { useAuth } from '../contexts/AuthContext';
 
 // Function to capitalize first letter of each word
 const capitalizeWords = (str) => {
@@ -12,7 +11,6 @@ const capitalizeWords = (str) => {
 };
 
 export default function Reviews() {
-  const { user } = useAuth();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -97,11 +95,9 @@ export default function Reviews() {
       {reviews.length === 0 ? (
         <div className="empty-state">
           <p>🎯 NO REVIEWS YET. BE THE FIRST TO SUBMIT A REVIEW!</p>
-          {user && (
-            <a href="/submit" className="btn btn-primary">
-              SUBMIT REVIEW
-            </a>
-          )}
+          <a href="/submit" className="btn btn-primary">
+            SUBMIT REVIEW
+          </a>
         </div>
       ) : (
         <div className="reviews-grid">
