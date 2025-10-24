@@ -30,11 +30,26 @@ export default function SubmitReview() {
     );
   }
 
+  // Function to capitalize first letter of each word
+  const capitalizeWords = (str) => {
+    return str
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+    
+    // Capitalize company and boss names
+    let formattedValue = value;
+    if (name === 'companyName' || name === 'bossName') {
+      formattedValue = capitalizeWords(value);
+    }
+    
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: formattedValue
     }));
   };
 
