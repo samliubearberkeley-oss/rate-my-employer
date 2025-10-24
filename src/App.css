@@ -170,6 +170,10 @@
   transition: transform 0.2s ease;
   margin-bottom: 16px;
   padding: 20px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .reviews-grid .list-item:hover {
@@ -234,6 +238,9 @@
   position: relative;
   margin-bottom: 16px;
   background: var(--theme-card);
+  min-height: 120px;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .list-item:last-child {
