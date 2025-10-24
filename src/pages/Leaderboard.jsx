@@ -114,15 +114,22 @@ export default function Leaderboard() {
   return (
     <div className="container">
       <div className="leaderboard-header">
-        <h1>🏆 Company Leaderboard</h1>
+        <h1>🏆 COMPANY LEADERBOARD</h1>
         <p className="subtitle">
-          Top rated companies based on employee reviews • Updated in real-time
+          TOP RATED COMPANIES BASED ON EMPLOYEE REVIEWS • UPDATED IN REAL-TIME
         </p>
+        <div className="pixel-dots">
+          <div className="pixel-dot"></div>
+          <div className="pixel-dot"></div>
+          <div className="pixel-dot"></div>
+          <div className="pixel-dot"></div>
+          <div className="pixel-dot"></div>
+        </div>
       </div>
 
       {leaderboard.length === 0 ? (
         <div className="empty-state">
-          <p>No companies ranked yet. Submit the first review!</p>
+          <p>🎯 NO COMPANIES RANKED YET. SUBMIT THE FIRST REVIEW!</p>
         </div>
       ) : (
         <div className="leaderboard-container">
@@ -134,7 +141,7 @@ export default function Leaderboard() {
                 </div>
                 
                 <div className="company-info">
-                  <h3 className="company-name">{company.name}</h3>
+                  <h3 className="company-name">🏢 {company.name}</h3>
                   <div className="rating-info">
                     {renderStars(company.avgRating)}
                     <span className={`rating-score ${getRatingColor(company.avgRating)}`}>
@@ -145,7 +152,7 @@ export default function Leaderboard() {
                 
                 <div className="review-count">
                   <span className="count-number">{company.reviewCount}</span>
-                  <span className="count-label">{company.reviewCount === 1 ? 'review' : 'reviews'}</span>
+                  <span className="count-label">{company.reviewCount === 1 ? 'REVIEW' : 'REVIEWS'}</span>
                 </div>
               </div>
             ))}
@@ -154,13 +161,13 @@ export default function Leaderboard() {
           <div className="leaderboard-stats">
             <div className="stat-card">
               <div className="stat-number">{leaderboard.length}</div>
-              <div className="stat-label">Companies Ranked</div>
+              <div className="stat-label">COMPANIES RANKED</div>
             </div>
             <div className="stat-card">
               <div className="stat-number">
                 {leaderboard.reduce((acc, c) => acc + c.reviewCount, 0)}
               </div>
-              <div className="stat-label">Total Reviews</div>
+              <div className="stat-label">TOTAL REVIEWS</div>
             </div>
             <div className="stat-card">
               <div className="stat-number">
@@ -169,7 +176,7 @@ export default function Leaderboard() {
                   : '0.00'
                 }
               </div>
-              <div className="stat-label">Average Rating</div>
+              <div className="stat-label">AVERAGE RATING</div>
             </div>
           </div>
         </div>

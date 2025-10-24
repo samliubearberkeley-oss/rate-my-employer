@@ -5,6 +5,7 @@ import Reviews from './pages/Reviews';
 import SubmitReview from './pages/SubmitReview';
 import Login from './pages/Login';
 import Leaderboard from './pages/Leaderboard';
+import PixelPoster from './pages/PixelPoster';
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/submit" element={<SubmitReview />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/poster" element={<PixelPoster />} />
           </Routes>
         </div>
       </AuthProvider>

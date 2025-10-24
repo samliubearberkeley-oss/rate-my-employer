@@ -20,10 +20,10 @@ export default function SubmitReview() {
     return (
       <div className="container">
         <div className="error-card">
-          <h2>Authentication Required</h2>
-          <p>Please log in to submit a review.</p>
+          <h2>🔐 AUTHENTICATION REQUIRED</h2>
+          <p>PLEASE LOG IN TO SUBMIT A REVIEW.</p>
           <button onClick={() => navigate('/login')} className="btn btn-primary">
-            Go to Login
+            GO TO LOGIN
           </button>
         </div>
       </div>
@@ -77,40 +77,47 @@ export default function SubmitReview() {
   return (
     <div className="container">
       <div className="form-card">
-        <h1>Submit a Review</h1>
-        <p className="subtitle">Share your experience with your employer</p>
+        <h1>🎮 SUBMIT A REVIEW</h1>
+        <p className="subtitle">SHARE YOUR EXPERIENCE WITH YOUR EMPLOYER</p>
+        <div className="pixel-dots">
+          <div className="pixel-dot"></div>
+          <div className="pixel-dot"></div>
+          <div className="pixel-dot"></div>
+          <div className="pixel-dot"></div>
+          <div className="pixel-dot"></div>
+        </div>
         
         {error && <div className="error-message">{error}</div>}
         
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="companyName">Company Name *</label>
+            <label htmlFor="companyName">🏢 COMPANY NAME *</label>
             <input
               id="companyName"
               name="companyName"
               type="text"
               value={formData.companyName}
               onChange={handleChange}
-              placeholder="e.g., Tech Corp Inc."
+              placeholder="E.G., TECH CORP INC."
               required
             />
           </div>
           
           <div className="form-group">
-            <label htmlFor="bossName">Boss Name *</label>
+            <label htmlFor="bossName">👔 BOSS NAME *</label>
             <input
               id="bossName"
               name="bossName"
               type="text"
               value={formData.bossName}
               onChange={handleChange}
-              placeholder="e.g., John Smith"
+              placeholder="E.G., JOHN SMITH"
               required
             />
           </div>
           
           <div className="form-group">
-            <label htmlFor="rating">Rating * ({formData.rating}/5)</label>
+            <label htmlFor="rating">⭐ RATING * ({formData.rating}/5)</label>
             <div className="rating-container">
               <input
                 id="rating"
@@ -136,19 +143,19 @@ export default function SubmitReview() {
           </div>
           
           <div className="form-group">
-            <label htmlFor="reviewText">Review (Optional)</label>
+            <label htmlFor="reviewText">📝 REVIEW (OPTIONAL)</label>
             <textarea
               id="reviewText"
               name="reviewText"
               value={formData.reviewText}
               onChange={handleChange}
-              placeholder="Tell us about your experience..."
+              placeholder="TELL US ABOUT YOUR EXPERIENCE..."
               rows="5"
             />
           </div>
           
           <button type="submit" className="btn btn-primary" disabled={loading}>
-            {loading ? 'Submitting...' : 'Submit Review'}
+            {loading ? 'SUBMITTING...' : 'SUBMIT REVIEW'}
           </button>
         </form>
       </div>

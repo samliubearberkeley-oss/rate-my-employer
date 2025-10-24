@@ -72,18 +72,25 @@ export default function Reviews() {
   return (
     <div className="container">
       <div className="reviews-header">
-        <h1>Employer Reviews</h1>
+        <h1>🎮 EMPLOYER REVIEWS</h1>
         <p className="subtitle">
-          {reviews.length} {reviews.length === 1 ? 'review' : 'reviews'} from employees
+          {reviews.length} {reviews.length === 1 ? 'REVIEW' : 'REVIEWS'} FROM EMPLOYEES
         </p>
+        <div className="pixel-dots">
+          <div className="pixel-dot"></div>
+          <div className="pixel-dot"></div>
+          <div className="pixel-dot"></div>
+          <div className="pixel-dot"></div>
+          <div className="pixel-dot"></div>
+        </div>
       </div>
 
       {reviews.length === 0 ? (
         <div className="empty-state">
-          <p>No reviews yet. Be the first to submit a review!</p>
+          <p>🎯 NO REVIEWS YET. BE THE FIRST TO SUBMIT A REVIEW!</p>
           {user && (
             <a href="/submit" className="btn btn-primary">
-              Submit a Review
+              SUBMIT REVIEW
             </a>
           )}
         </div>
@@ -93,8 +100,8 @@ export default function Reviews() {
             <div key={review.id} className="review-card">
               <div className="review-header">
                 <div>
-                  <h3 className="company-name">{review.company_name}</h3>
-                  <p className="boss-name">Boss: {review.boss_name}</p>
+                  <h3 className="company-name">🏢 {review.company_name}</h3>
+                  <p className="boss-name">👔 BOSS: {review.boss_name}</p>
                 </div>
                 {renderStars(review.rating)}
               </div>

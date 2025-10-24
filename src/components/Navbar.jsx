@@ -8,24 +8,26 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
-          ⭐ Rate My Employer
+          🎮 RATE MY EMPLOYER
         </Link>
         
         <div className="navbar-links">
           {user ? (
             <>
-              <Link to="/" className="nav-link">Reviews</Link>
-              <Link to="/leaderboard" className="nav-link">Leaderboard</Link>
-              <Link to="/submit" className="nav-link">Submit Review</Link>
+              <Link to="/" className="nav-link">REVIEWS</Link>
+              <Link to="/leaderboard" className="nav-link">LEADERBOARD</Link>
+              <Link to="/submit" className="nav-link">SUBMIT</Link>
+              <Link to="/poster" className="nav-link">POSTER</Link>
               <button onClick={signOut} className="btn btn-secondary">
-                Sign Out
+                SIGN OUT
               </button>
             </>
           ) : (
             <>
-              <Link to="/" className="nav-link">Reviews</Link>
-              <Link to="/leaderboard" className="nav-link">Leaderboard</Link>
-              <Link to="/login" className="nav-link">Login</Link>
+              <Link to="/" className="nav-link">REVIEWS</Link>
+              <Link to="/leaderboard" className="nav-link">LEADERBOARD</Link>
+              <Link to="/poster" className="nav-link">POSTER</Link>
+              <Link to="/login" className="nav-link">LOGIN</Link>
             </>
           )}
         </div>
