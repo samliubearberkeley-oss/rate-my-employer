@@ -243,6 +243,13 @@
 .list-item-meta {
   font-size: 14px;
   color: var(--theme-text);
+  margin-bottom: 4px;
+}
+
+.list-item-rating {
+  font-size: 14px;
+  color: var(--theme-text);
+  font-weight: 600;
 }
 
 /* Card Detail Overlay */

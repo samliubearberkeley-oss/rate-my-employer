@@ -125,6 +125,9 @@ export default function Reviews() {
                     {review.review_text || 'No review text'}
                   </div>
                   <div className="list-item-meta">
+                    {capitalizeWords(review.company_name)} • Boss: {capitalizeWords(review.boss_name)}
+                  </div>
+                  <div className="list-item-rating">
                     {renderStars(review.rating)} • {formatDate(review.created_at)}
                   </div>
                 </div>
