@@ -200,21 +200,9 @@
 
 .list-header {
   padding: 20px;
-  border-bottom: 3px dashed var(--theme-border);
+  border-bottom: none;
   background: var(--theme-card);
   position: relative;
-}
-
-.list-header.sketch::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 10px;
-  right: 10px;
-  height: 1px;
-  background: var(--theme-border);
-  opacity: 0.5;
-  transform: rotate(-0.5deg);
 }
 
 .list-title {
@@ -238,7 +226,7 @@
   display: flex;
   align-items: center;
   padding: 16px 20px;
-  border-bottom: 2px dashed var(--theme-border);
+  border-bottom: none;
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
@@ -246,7 +234,7 @@
 }
 
 .list-item:last-child {
-  border-bottom: 2px dashed var(--theme-border);
+  border-bottom: none;
 }
 
 .list-item:hover {
@@ -254,7 +242,7 @@
 }
 
 .list-item.sketch {
-  border-bottom: 2px dashed var(--theme-border);
+  border-bottom: none;
   transform: rotate(0.2deg);
 }
 
