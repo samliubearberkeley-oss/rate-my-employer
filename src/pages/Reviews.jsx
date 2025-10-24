@@ -90,6 +90,11 @@ export default function Reviews() {
           <div className="pixel-dot"></div>
           <div className="pixel-dot"></div>
         </div>
+        <div className="header-actions">
+          <a href="/submit" className="btn btn-primary">
+            SUBMIT REVIEW
+          </a>
+        </div>
       </div>
 
       {reviews.length === 0 ? (

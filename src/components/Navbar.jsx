@@ -11,7 +11,6 @@ export default function Navbar() {
         <div className="navbar-links">
           <Link to="/" className="nav-link">REVIEWS</Link>
           <Link to="/leaderboard" className="nav-link">LEADERBOARD</Link>
-          <Link to="/submit" className="nav-link">SUBMIT REVIEW</Link>
         </div>
       </div>
     </nav>
